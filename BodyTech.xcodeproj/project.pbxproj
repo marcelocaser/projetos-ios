@@ -1,0 +1,518 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		56325AF01B750B180010D4AD /* CupomTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 56325AEF1B750B180010D4AD /* CupomTableViewCell.m */; };
+		565334841B62A8CC007713E5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 565334831B62A8CC007713E5 /* main.m */; };
+		565334871B62A8CC007713E5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 565334861B62A8CC007713E5 /* AppDelegate.m */; };
+		5653348A1B62A8CC007713E5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565334891B62A8CC007713E5 /* ViewController.m */; };
+		5653348D1B62A8CC007713E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5653348B1B62A8CC007713E5 /* Main.storyboard */; };
+		5653348F1B62A8CC007713E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5653348E1B62A8CC007713E5 /* Images.xcassets */; };
+		565334921B62A8CC007713E5 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 565334901B62A8CC007713E5 /* LaunchScreen.xib */; };
+		5653349E1B62A8CC007713E5 /* BodyTechTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5653349D1B62A8CC007713E5 /* BodyTechTests.m */; };
+		565334AD1B62B211007713E5 /* Cliente.m in Sources */ = {isa = PBXBuildFile; fileRef = 565334AA1B62B211007713E5 /* Cliente.m */; };
+		565334AE1B62B211007713E5 /* logoBodyTech.png in Resources */ = {isa = PBXBuildFile; fileRef = 565334AB1B62B211007713E5 /* logoBodyTech.png */; };
+		565334AF1B62B211007713E5 /* logoBodyTechCompany.png in Resources */ = {isa = PBXBuildFile; fileRef = 565334AC1B62B211007713E5 /* logoBodyTechCompany.png */; };
+		565A3C551B67D1AC006CBAE7 /* PrincipalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565A3C541B67D1AC006CBAE7 /* PrincipalViewController.m */; };
+		567C09CD1B710EA70045923E /* Cupom.m in Sources */ = {isa = PBXBuildFile; fileRef = 567C09CC1B710EA70045923E /* Cupom.m */; };
+		56E0C7051B78277C00EB03A8 /* logoBodyTech40pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 56E0C7041B78277C00EB03A8 /* logoBodyTech40pt.png */; };
+		56E0C7071B7827C000EB03A8 /* logoBodyTech40pt2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56E0C7061B7827C000EB03A8 /* logoBodyTech40pt2x.png */; };
+		56E0C70A1B78647D00EB03A8 /* CupomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E0C7091B78647D00EB03A8 /* CupomItem.m */; };
+		56E0C70D1B7866DD00EB03A8 /* Produto.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E0C70C1B7866DD00EB03A8 /* Produto.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		565334981B62A8CC007713E5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 565334761B62A8CB007713E5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5653347D1B62A8CB007713E5;
+			remoteInfo = BodyTech;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		56325AEE1B750B180010D4AD /* CupomTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupomTableViewCell.h; sourceTree = "<group>"; };
+		56325AEF1B750B180010D4AD /* CupomTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupomTableViewCell.m; sourceTree = "<group>"; };
+		5653347E1B62A8CC007713E5 /* BodyTech.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BodyTech.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		565334821B62A8CC007713E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		565334831B62A8CC007713E5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		565334851B62A8CC007713E5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		565334861B62A8CC007713E5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		565334881B62A8CC007713E5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		565334891B62A8CC007713E5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		5653348C1B62A8CC007713E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5653348E1B62A8CC007713E5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		565334911B62A8CC007713E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		565334971B62A8CC007713E5 /* BodyTechTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BodyTechTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5653349C1B62A8CC007713E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5653349D1B62A8CC007713E5 /* BodyTechTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BodyTechTests.m; sourceTree = "<group>"; };
+		565334A71B62A8FE007713E5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Main.strings"; sourceTree = "<group>"; };
+		565334A81B62A8FE007713E5 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		565334A91B62B211007713E5 /* Cliente.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cliente.h; sourceTree = "<group>"; };
+		565334AA1B62B211007713E5 /* Cliente.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cliente.m; sourceTree = "<group>"; };
+		565334AB1B62B211007713E5 /* logoBodyTech.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoBodyTech.png; sourceTree = "<group>"; };
+		565334AC1B62B211007713E5 /* logoBodyTechCompany.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoBodyTechCompany.png; sourceTree = "<group>"; };
+		565A3C531B67D1AC006CBAE7 /* PrincipalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrincipalViewController.h; sourceTree = "<group>"; };
+		565A3C541B67D1AC006CBAE7 /* PrincipalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrincipalViewController.m; sourceTree = "<group>"; };
+		567C09CB1B710EA70045923E /* Cupom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cupom.h; sourceTree = "<group>"; };
+		567C09CC1B710EA70045923E /* Cupom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cupom.m; sourceTree = "<group>"; };
+		56E0C7041B78277C00EB03A8 /* logoBodyTech40pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoBodyTech40pt.png; sourceTree = "<group>"; };
+		56E0C7061B7827C000EB03A8 /* logoBodyTech40pt2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoBodyTech40pt2x.png; sourceTree = "<group>"; };
+		56E0C7081B78647D00EB03A8 /* CupomItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupomItem.h; sourceTree = "<group>"; };
+		56E0C7091B78647D00EB03A8 /* CupomItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupomItem.m; sourceTree = "<group>"; };
+		56E0C70B1B7866DD00EB03A8 /* Produto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Produto.h; sourceTree = "<group>"; };
+		56E0C70C1B7866DD00EB03A8 /* Produto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Produto.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5653347B1B62A8CB007713E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		565334941B62A8CC007713E5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		565334751B62A8CB007713E5 = {
+			isa = PBXGroup;
+			children = (
+				565334801B62A8CC007713E5 /* BodyTech */,
+				5653349A1B62A8CC007713E5 /* BodyTechTests */,
+				5653347F1B62A8CC007713E5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5653347F1B62A8CC007713E5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5653347E1B62A8CC007713E5 /* BodyTech.app */,
+				565334971B62A8CC007713E5 /* BodyTechTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		565334801B62A8CC007713E5 /* BodyTech */ = {
+			isa = PBXGroup;
+			children = (
+				565334B11B62B247007713E5 /* AppDelegate */,
+				565334811B62A8CC007713E5 /* Supporting Files */,
+				567C09CA1B710E090045923E /* Cupom */,
+				565334B01B62B222007713E5 /* Cliente */,
+				565334881B62A8CC007713E5 /* ViewController.h */,
+				565334891B62A8CC007713E5 /* ViewController.m */,
+				5653348B1B62A8CC007713E5 /* Main.storyboard */,
+				5653348E1B62A8CC007713E5 /* Images.xcassets */,
+				565334901B62A8CC007713E5 /* LaunchScreen.xib */,
+				565A3C531B67D1AC006CBAE7 /* PrincipalViewController.h */,
+				565A3C541B67D1AC006CBAE7 /* PrincipalViewController.m */,
+				56325AEE1B750B180010D4AD /* CupomTableViewCell.h */,
+				56325AEF1B750B180010D4AD /* CupomTableViewCell.m */,
+			);
+			path = BodyTech;
+			sourceTree = "<group>";
+		};
+		565334811B62A8CC007713E5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				56E0C7041B78277C00EB03A8 /* logoBodyTech40pt.png */,
+				56E0C7061B7827C000EB03A8 /* logoBodyTech40pt2x.png */,
+				565334AB1B62B211007713E5 /* logoBodyTech.png */,
+				565334AC1B62B211007713E5 /* logoBodyTechCompany.png */,
+				565334821B62A8CC007713E5 /* Info.plist */,
+				565334831B62A8CC007713E5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5653349A1B62A8CC007713E5 /* BodyTechTests */ = {
+			isa = PBXGroup;
+			children = (
+				5653349D1B62A8CC007713E5 /* BodyTechTests.m */,
+				5653349B1B62A8CC007713E5 /* Supporting Files */,
+			);
+			path = BodyTechTests;
+			sourceTree = "<group>";
+		};
+		5653349B1B62A8CC007713E5 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5653349C1B62A8CC007713E5 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		565334B01B62B222007713E5 /* Cliente */ = {
+			isa = PBXGroup;
+			children = (
+				565334A91B62B211007713E5 /* Cliente.h */,
+				565334AA1B62B211007713E5 /* Cliente.m */,
+			);
+			name = Cliente;
+			sourceTree = "<group>";
+		};
+		565334B11B62B247007713E5 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				565334851B62A8CC007713E5 /* AppDelegate.h */,
+				565334861B62A8CC007713E5 /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		567C09CA1B710E090045923E /* Cupom */ = {
+			isa = PBXGroup;
+			children = (
+				567C09CB1B710EA70045923E /* Cupom.h */,
+				567C09CC1B710EA70045923E /* Cupom.m */,
+				56E0C7081B78647D00EB03A8 /* CupomItem.h */,
+				56E0C7091B78647D00EB03A8 /* CupomItem.m */,
+				56E0C70B1B7866DD00EB03A8 /* Produto.h */,
+				56E0C70C1B7866DD00EB03A8 /* Produto.m */,
+			);
+			name = Cupom;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5653347D1B62A8CB007713E5 /* BodyTech */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 565334A11B62A8CC007713E5 /* Build configuration list for PBXNativeTarget "BodyTech" */;
+			buildPhases = (
+				5653347A1B62A8CB007713E5 /* Sources */,
+				5653347B1B62A8CB007713E5 /* Frameworks */,
+				5653347C1B62A8CB007713E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BodyTech;
+			productName = BodyTech;
+			productReference = 5653347E1B62A8CC007713E5 /* BodyTech.app */;
+			productType = "com.apple.product-type.application";
+		};
+		565334961B62A8CC007713E5 /* BodyTechTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 565334A41B62A8CC007713E5 /* Build configuration list for PBXNativeTarget "BodyTechTests" */;
+			buildPhases = (
+				565334931B62A8CC007713E5 /* Sources */,
+				565334941B62A8CC007713E5 /* Frameworks */,
+				565334951B62A8CC007713E5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				565334991B62A8CC007713E5 /* PBXTargetDependency */,
+			);
+			name = BodyTechTests;
+			productName = BodyTechTests;
+			productReference = 565334971B62A8CC007713E5 /* BodyTechTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		565334761B62A8CB007713E5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				ORGANIZATIONNAME = "SMP Sistemas LTDA";
+				TargetAttributes = {
+					5653347D1B62A8CB007713E5 = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					565334961B62A8CC007713E5 = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 5653347D1B62A8CB007713E5;
+					};
+				};
+			};
+			buildConfigurationList = 565334791B62A8CB007713E5 /* Build configuration list for PBXProject "BodyTech" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+			);
+			mainGroup = 565334751B62A8CB007713E5;
+			productRefGroup = 5653347F1B62A8CC007713E5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5653347D1B62A8CB007713E5 /* BodyTech */,
+				565334961B62A8CC007713E5 /* BodyTechTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5653347C1B62A8CB007713E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5653348D1B62A8CC007713E5 /* Main.storyboard in Resources */,
+				565334921B62A8CC007713E5 /* LaunchScreen.xib in Resources */,
+				56E0C7051B78277C00EB03A8 /* logoBodyTech40pt.png in Resources */,
+				56E0C7071B7827C000EB03A8 /* logoBodyTech40pt2x.png in Resources */,
+				565334AF1B62B211007713E5 /* logoBodyTechCompany.png in Resources */,
+				565334AE1B62B211007713E5 /* logoBodyTech.png in Resources */,
+				5653348F1B62A8CC007713E5 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		565334951B62A8CC007713E5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5653347A1B62A8CB007713E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				56325AF01B750B180010D4AD /* CupomTableViewCell.m in Sources */,
+				56E0C70A1B78647D00EB03A8 /* CupomItem.m in Sources */,
+				567C09CD1B710EA70045923E /* Cupom.m in Sources */,
+				56E0C70D1B7866DD00EB03A8 /* Produto.m in Sources */,
+				565A3C551B67D1AC006CBAE7 /* PrincipalViewController.m in Sources */,
+				565334AD1B62B211007713E5 /* Cliente.m in Sources */,
+				5653348A1B62A8CC007713E5 /* ViewController.m in Sources */,
+				565334871B62A8CC007713E5 /* AppDelegate.m in Sources */,
+				565334841B62A8CC007713E5 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		565334931B62A8CC007713E5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5653349E1B62A8CC007713E5 /* BodyTechTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		565334991B62A8CC007713E5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5653347D1B62A8CB007713E5 /* BodyTech */;
+			targetProxy = 565334981B62A8CC007713E5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5653348B1B62A8CC007713E5 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5653348C1B62A8CC007713E5 /* Base */,
+				565334A71B62A8FE007713E5 /* pt-BR */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		565334901B62A8CC007713E5 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				565334911B62A8CC007713E5 /* Base */,
+				565334A81B62A8FE007713E5 /* pt-BR */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5653349F1B62A8CC007713E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		565334A01B62A8CC007713E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		565334A21B62A8CC007713E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BodyTech/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		565334A31B62A8CC007713E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = BodyTech/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		565334A51B62A8CC007713E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BodyTechTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BodyTech.app/BodyTech";
+			};
+			name = Debug;
+		};
+		565334A61B62A8CC007713E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = BodyTechTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BodyTech.app/BodyTech";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		565334791B62A8CB007713E5 /* Build configuration list for PBXProject "BodyTech" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5653349F1B62A8CC007713E5 /* Debug */,
+				565334A01B62A8CC007713E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		565334A11B62A8CC007713E5 /* Build configuration list for PBXNativeTarget "BodyTech" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				565334A21B62A8CC007713E5 /* Debug */,
+				565334A31B62A8CC007713E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		565334A41B62A8CC007713E5 /* Build configuration list for PBXNativeTarget "BodyTechTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				565334A51B62A8CC007713E5 /* Debug */,
+				565334A61B62A8CC007713E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 565334761B62A8CB007713E5 /* Project object */;
+}
