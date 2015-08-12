@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 #define urlWSClient @"http://wsbodytech.ddns.net/smps-ws-client/ws/efetuarLogin.json?cpfCnpj=%@&senha=%@&chave=wssmpsistemasws"
-#define urlWSClientTeste @"http://192.168.0.12/smps-ws-client/ws/efetuarLogin.json?cpfCnpj=%@&senha=%@&chave=wssmpsistemasws"
+#define urlWSClientTeste @"http://10.5.101.237/smps-ws-client/ws/efetuarLogin.json?cpfCnpj=%@&senha=%@&chave=wssmpsistemasws"
 
 @interface ViewController ()
 
@@ -41,7 +41,7 @@
     if ([self validaCPFCNPJ] && [self validaSenha]) {
          mensagem = @"Verificando conexão...";
         [self disableButtonsAndInputs];
-        NSString *urlWs = [NSString stringWithFormat:urlWSClient, self.cpfCnpj.text, self.senha.text];
+        NSString *urlWs = [NSString stringWithFormat:urlWSClientTeste, self.cpfCnpj.text, self.senha.text];
         NSURL *url = [NSURL URLWithString:urlWs];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [self enableButtonsAndInputs];
@@ -60,7 +60,6 @@
                  alert = [[UIAlertView alloc] initWithTitle:@"Ops..." message:@"Verifique sua conexão de internet e entre em contato com o administrador do sistema." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                  [alert show];
                  return;
-                 
              }
              
              if (connectionError != nil) {
@@ -90,26 +89,13 @@
                  [cliente setCnpjClien:[[cli objectForKey:@"cnpjClien"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
                  [cliente setPassword:[[cli objectForKey:@"password"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
                  [cliente setSituacao:[[cli objectForKey:@"situacao"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
-                 /*NSLog(@"%@", cliente.nomeClien);
-                  NSLog(@"%@", cliente.codgClien);
-                  NSLog(@"%@", cliente.valoCredito);
-                  NSLog(@"%@", cliente.password);
-                  NSLog(@"%@", cliente.situacao);*/
                  mensagem = @"Verificando cliente ativo";
                  if (![@"L" isEqualToString:cliente.situacao])
                  {
                      [self enableButtonsAndInputs];
                      alert = [[UIAlertView alloc] initWithTitle:@"Alerta" message:@"É necessário estar ativo para acessar o sistema." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                      [alert show];
-                     // Get the new view controller using [segue destinationViewController].
-                     // Pass the selected object to the new view controller.
-                     /*PrincipalController *pc = (PrincipalController *)segue.destinationViewController;
-                      pc.nomeCliente.text = cliente.nomeClien;*/
                  } else {
-                     //[self performSegueWithIdentifier:@"principalController" sender:self];
-                     /*NSString *sucesso = [NSString stringWithFormat:@"%@ - %@ - %@ - %@", cliente.nomeClien, cliente.codgClien, cliente.valoCredito, cliente.situacao];
-                      alert = [[UIAlertView alloc] initWithTitle:@"Sucesso" message:sucesso delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                      [alert show];*/
                      _senha.text = nil;
                      [self performSegueWithIdentifier:@"principalViewController" sender:self];
                      
@@ -168,11 +154,17 @@
 }
 
 /*
- Metodo responsavel por "travar" a app na horizontal
  */
-- (BOOL)shouldAutorotate {
+/*- (NSUInteger)supportedInterfaceOrientations {
+    return UIInterfaceOrientationIsPortrait(YES);
+}*/
+
+/*
+ Metodo responsavel por "travar" auto rotação
+ */
+/*- (BOOL)shouldAutorotate {
     return NO;
-}
+}*/
 
 - (void)enableButtonsAndInputs {
     [alert dismissWithClickedButtonIndex:0 animated:YES];

@@ -9,7 +9,7 @@
 #import "PrincipalViewController.h"
 
 #define urlWSBanco @"http://wsbodytech.ddns.net/smps-ws-banco/ws/buscarUltimosCuponsPorPeriodo.json?cpfCnpj=%@&dias=%d&chave=wssmpsistemasws"
-#define urlWSBancoTeste @"http://192.168.0.12/smps-ws-banco/ws/buscarUltimosCuponsPorPeriodo.json?cpfCnpj=%@&dias=%d&chave=wssmpsistemasws"
+#define urlWSBancoTeste @"http://10.5.101.237/smps-ws-banco/ws/buscarUltimosCuponsPorPeriodo.json?cpfCnpj=%@&dias=%d&chave=wssmpsistemasws"
 
 @interface PrincipalViewController ()
 
@@ -59,79 +59,94 @@
 }
 
 - (void)disableButtonsAndInputs {
-    /*activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];*/
     alert = [[UIAlertView alloc] initWithTitle:@"Aguarde" message:mensagem delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
-    [alert addSubview:activity];
-    //activity.center = CGPointMake(16,112);
-    //activity.color = [UIColor blackColor];
-    //[activity startAnimating];
     [alert show];
 }
 
 - (void)buscaCupomPorPerido:(int)dias {
-    NSString *urlWs = [NSString stringWithFormat:urlWSBanco, _cliente.cnpjClien, dias];
+    [self disableButtonsAndInputs];
+    NSString *urlWs = [NSString stringWithFormat:urlWSBancoTeste, _cliente.cnpjClien, dias];
     NSURL *url = [NSURL URLWithString:urlWs];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    
-    if (data == nil) {
-        [self enableButtonsAndInputs];
-        alert = [[UIAlertView alloc] initWithTitle:@"Ops,.." message:@"No momento não foi possível buscar as informações. Tente novamente mais tarde" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        return;
-        
-    }
-    
-    jsonCupons = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    if (jsonCupons == nil || jsonCupons.count == 0) {
-        [self enableButtonsAndInputs];
-        NSString *info = [NSString stringWithFormat:@"Não houveram lançamentos nos últimos %d dias", dias];
-        alert = [[UIAlertView alloc] initWithTitle:@"Alerta" message:info delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-        //return;
-    }
-    retornoCupons = [[NSMutableArray alloc] init];
-    for (int i = 0; i < jsonCupons.count; i++) {
-        [self enableButtonsAndInputs];
-        cupomItem = [[CupomItem alloc] init];
-        [cupomItem setNumrCupom:[[jsonCupons objectAtIndex:i] objectForKey:@"numrCupom"]];
-        [cupomItem setEcfData:[[jsonCupons objectAtIndex:i] objectForKey:@"ecfData"]];
-        [cupomItem setValrTotal:[[jsonCupons objectAtIndex:i] objectForKey:@"valrTotal"]];
-        
-        // Itens do Cupom
-        retornoCuponsItens = [[jsonCupons objectAtIndex:i] objectForKey:@"cfrtvens"];
-        for (int j = 0; j < retornoCuponsItens.count; j++) {
-            // Busca o Produto
-            produto = [[Produto alloc] init];
-            NSDictionary *prod = [[retornoCuponsItens objectAtIndex:j] objectForKey:@"codigoproduto"];
-            [produto setCodgProd:[[prod objectForKey:@"codgProd"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
-            [produto setCodgBarra:[[prod objectForKey:@"codgBarra"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
-            [produto setDescProd:[[prod objectForKey:@"descProd"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
-            [produto setCodgUnid:[[prod objectForKey:@"codgUnid"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
-            [cupomItem setProduto:produto];
-            [retornoCupons addObject:cupomItem];
-        }
-    }
-    
-    [self.tableView reloadData];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response,
+                                               NSData *data, NSError *connectionError)
+     {
+         if (response == nil) {
+             [self enableButtonsAndInputs];
+             alert = [[UIAlertView alloc] initWithTitle:@"Ops..." message:@"Verifique sua conexão de internet e entre em contato com o administrador do sistema." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [alert show];
+             return;
+         }
+         
+         if (connectionError != nil) {
+             [self enableButtonsAndInputs];
+             alert = [[UIAlertView alloc] initWithTitle:@"Ops..." message:@"Ocorreu um erro ao buscar conexão com o servidor. Tente novamente mais tarde." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [alert show];
+             return;
+         }
+         
+         if (data == nil) {
+             [self enableButtonsAndInputs];
+             alert = [[UIAlertView alloc] initWithTitle:@"Ops,.." message:@"No momento não foi possível buscar as informações. Tente novamente mais tarde" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [alert show];
+             return;
+             
+         }
+         
+         jsonCupons = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+         if (jsonCupons == nil || jsonCupons.count == 0) {
+             [self enableButtonsAndInputs];
+             NSString *info = [NSString stringWithFormat:@"Não houveram lançamentos nos últimos %d dias", dias];
+             alert = [[UIAlertView alloc] initWithTitle:@"Alerta" message:info delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+             [alert show];
+             //return;
+         }
+         
+         retornoCupons = [[NSMutableArray alloc] init];
+         for (int i = 0; i < jsonCupons.count; i++) {
+             [self enableButtonsAndInputs];
+             cupomItem = [[CupomItem alloc] init];
+             [cupomItem setNumrCupom:[[jsonCupons objectAtIndex:i] objectForKey:@"numrCupom"]];
+             [cupomItem setEcfData:[[jsonCupons objectAtIndex:i] objectForKey:@"ecfData"]];
+             [cupomItem setValrTotal:[[jsonCupons objectAtIndex:i] objectForKey:@"valrTotal"]];
+             
+             // Itens do Cupom
+             retornoCuponsItens = [[jsonCupons objectAtIndex:i] objectForKey:@"cfrtvens"];
+             for (int j = 0; j < retornoCuponsItens.count; j++) {
+                 // Busca o Produto
+                 produto = [[Produto alloc] init];
+                 NSDictionary *prod = [[retornoCuponsItens objectAtIndex:j] objectForKey:@"codigoproduto"];
+                 [produto setCodgProd:[[prod objectForKey:@"codgProd"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
+                 [produto setCodgBarra:[[prod objectForKey:@"codgBarra"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
+                 [produto setDescProd:[[prod objectForKey:@"descProd"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
+                 [produto setCodgUnid:[[prod objectForKey:@"codgUnid"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
+                 [cupomItem setProduto:produto];
+                 [retornoCupons addObject:cupomItem];
+             }
+         }
+         
+         [self.tableView reloadData];
+         
+     }];
     
 }
 
 - (IBAction)extratoUltimos10Dias:(id)sender {
-    mensagem = @"Buscando os dados dos últimos 10 dias";
-    [self disableButtonsAndInputs];
+    mensagem = @"Buscando os dados dos últimos 10 dias...";
     _ultimosDias.text = @"Extrato 10 dias";
     [self buscaCupomPorPerido:10];
 }
 
 - (IBAction)extratoUltimos30Dias:(id)sender {
-    mensagem = @"Buscando os dados dos últimos 30 dias";
+    mensagem = @"Buscando os dados dos últimos 30 dias...";
     _ultimosDias.text = @"Extrato 30 dias";
     [self buscaCupomPorPerido:30];
 }
 
 - (IBAction)extratoUltimos60Dias:(id)sender {
-    mensagem = @"Buscando os dados dos últimos 60 dias";
-    [self disableButtonsAndInputs];
+    mensagem = @"Buscando os dados dos últimos 60 dias...";
     _ultimosDias.text = @"Extrato 60 dias";
     [self buscaCupomPorPerido:200];
 }
@@ -154,11 +169,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CupomTableViewCell *cellPrincipal = [tableView dequeueReusableCellWithIdentifier:@"CellPrincipal" forIndexPath:indexPath];
     
-    /*if (cellPrincipal == nil) {
-     cellPrincipal=[[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@"CellPrincpial"];
-     }*/
-    
-    //cellPrincipal.textLabel.text = @"teste";
     // Configure the cell...
     CupomItem *cp;
     cp = [retornoCupons objectAtIndex:indexPath.row];

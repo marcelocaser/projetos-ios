@@ -460,18 +460,18 @@
                                                     <exclude reference="VHw-eT-Pr9"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="5uM-wP-PmF"/>
-                                                    <exclude reference="qBp-CD-I1J"/>
-                                                    <exclude reference="p9d-yF-kKm"/>
-                                                    <exclude reference="sVV-RH-wKa"/>
-                                                    <exclude reference="G7e-ek-gtb"/>
-                                                    <exclude reference="raM-vq-M1z"/>
                                                     <exclude reference="gwG-2h-HRw"/>
                                                     <exclude reference="zEa-5U-GHc"/>
+                                                    <exclude reference="p9d-yF-kKm"/>
+                                                    <exclude reference="sVV-RH-wKa"/>
+                                                    <exclude reference="qi6-ee-AYS"/>
                                                     <exclude reference="pDZ-MJ-fzc"/>
                                                     <exclude reference="s81-GR-20J"/>
                                                     <exclude reference="xcv-2o-xin"/>
-                                                    <exclude reference="qi6-ee-AYS"/>
+                                                    <exclude reference="5uM-wP-PmF"/>
+                                                    <exclude reference="qBp-CD-I1J"/>
+                                                    <exclude reference="G7e-ek-gtb"/>
+                                                    <exclude reference="raM-vq-M1z"/>
                                                 </mask>
                                             </variation>
                                             <variation key="widthClass=compact">
@@ -484,18 +484,18 @@
                                                     <include reference="VHw-eT-Pr9"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="5uM-wP-PmF"/>
-                                                    <include reference="qBp-CD-I1J"/>
-                                                    <include reference="p9d-yF-kKm"/>
-                                                    <include reference="sVV-RH-wKa"/>
-                                                    <include reference="G7e-ek-gtb"/>
-                                                    <include reference="raM-vq-M1z"/>
                                                     <include reference="gwG-2h-HRw"/>
                                                     <include reference="zEa-5U-GHc"/>
+                                                    <include reference="p9d-yF-kKm"/>
+                                                    <include reference="sVV-RH-wKa"/>
+                                                    <include reference="qi6-ee-AYS"/>
                                                     <include reference="pDZ-MJ-fzc"/>
                                                     <include reference="s81-GR-20J"/>
                                                     <include reference="xcv-2o-xin"/>
-                                                    <include reference="qi6-ee-AYS"/>
+                                                    <include reference="5uM-wP-PmF"/>
+                                                    <include reference="qBp-CD-I1J"/>
+                                                    <include reference="G7e-ek-gtb"/>
+                                                    <include reference="raM-vq-M1z"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
