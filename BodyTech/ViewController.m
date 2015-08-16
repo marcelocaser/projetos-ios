@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 #define urlWSClient @"http://wsbodytech.ddns.net/smps-ws-client/ws/efetuarLogin.json?cpfCnpj=%@&senha=%@&chave=wssmpsistemasws"
-#define urlWSClientTeste @"http://10.5.101.237/smps-ws-client/ws/efetuarLogin.json?cpfCnpj=%@&senha=%@&chave=wssmpsistemasws"
+#define urlWSClientTeste @"http://192.168.1.117/smps-ws-client/ws/efetuarLogin.json?cpfCnpj=%@&senha=%@&chave=wssmpsistemasws"
 
 @interface ViewController ()
 
@@ -20,7 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    //[self fetchGreeting];
+    
+    userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults boolForKey:@"clienteAtivo"]) {
+        [self performSegueWithIdentifier:@"principalViewController" sender:self];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -92,11 +96,17 @@
                  mensagem = @"Verificando cliente ativo";
                  if (![@"L" isEqualToString:cliente.situacao])
                  {
+                     [userDefaults setBool:NO forKey:@"clienteAtivo"];
                      [self enableButtonsAndInputs];
                      alert = [[UIAlertView alloc] initWithTitle:@"Alerta" message:@"É necessário estar ativo para acessar o sistema." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                      [alert show];
                  } else {
+                     [userDefaults setObject:cliente.nomeClien forKey:@"nomeClien"];
+                     [userDefaults setObject:cliente.cnpjClien forKey:@"cnpjClien"];
+                     [userDefaults setObject:cliente.valoCredito forKey:@"valoCredito"];
+                     [userDefaults setBool:YES forKey:@"clienteAtivo"];
                      _senha.text = nil;
+                     [_senha resignFirstResponder];
                      [self performSegueWithIdentifier:@"principalViewController" sender:self];
                      
                  }
@@ -106,11 +116,19 @@
     }
 }
 
+- (IBAction)settings:(id)sender {
+    [self performSegueWithIdentifier:@"ajustesViewController" sender:self];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"principalViewController"]) {
-        PrincipalViewController *pvc = (PrincipalViewController *)segue.destinationViewController;
-        //pvc.nomeDoCliente = cliente.nomeClien;
-        pvc.cliente = cliente;
+        //PrincipalViewController *pvc = (PrincipalViewController *)segue.destinationViewController;
+        //pvc.cliente = cliente;
+    }
+    
+    if ([segue.identifier isEqualToString:@"ajustesViewController"]) {
+        //AjusteTableViewController *svc = (AjusteTableViewController *)segue.destinationViewController;
+        
     }
 }
 

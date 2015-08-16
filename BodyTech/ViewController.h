@@ -8,16 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "PrincipalViewController.h"
+#import "AjusteTableViewController.h"
 
 @interface ViewController : UIViewController {
     
     Cliente *cliente;
     UIAlertView *alert;
-    UIActivityIndicatorView *activity;
     NSString *mensagem;
-    IBOutlet UIButton *btnFazerLogin;
+    NSUserDefaults *userDefaults;
+    //IBOutlet UIButton *btnFazerLogin;
 }
 - (IBAction)efetuarLogin:(id)sender;
+- (IBAction)settings:(id)sender;
 
 @property (nonatomic, strong) IBOutlet UITextField *cpfCnpj;
 @property (nonatomic, strong) IBOutlet UITextField *senha;

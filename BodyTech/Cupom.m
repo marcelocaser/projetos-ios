@@ -22,6 +22,14 @@
     _valrTotal = valrTotal;
 }
 
+- (void)setCupomItens:(NSMutableArray *)cupomItens {
+    _cupomItens = cupomItens;
+}
+
+- (NSMutableArray *)getCupomItens {
+    return _cupomItens;
+}
+
 - (NSString *)getNumrCupom {
     return _numrCupom;
 }

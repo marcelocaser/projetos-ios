@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 SMP Sistemas LTDA. All rights reserved.
 //
 
-#import "Cupom.h"
+#import <Foundation/Foundation.h>
 #import "Produto.h"
 
-@interface CupomItem : Cupom {
+@interface CupomItem : NSObject {
     
     NSString *_seqItem;
     NSString *_qtde;
@@ -21,7 +21,6 @@
 - (void)setQtde:(NSString *)qtde;
 - (void)setUnitario:(NSString *)unitario;
 - (void)setTotal:(NSString *)total;
-- (void)setCupom:(Cupom *)cupom;
 - (void)setProduto:(Produto *)produto;
 - (NSString *)getSeqItem;
 - (NSString *)getQtde;

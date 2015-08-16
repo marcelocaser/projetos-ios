@@ -9,7 +9,7 @@
 #import "PrincipalViewController.h"
 
 #define urlWSBanco @"http://wsbodytech.ddns.net/smps-ws-banco/ws/buscarUltimosCuponsPorPeriodo.json?cpfCnpj=%@&dias=%d&chave=wssmpsistemasws"
-#define urlWSBancoTeste @"http://10.5.101.237/smps-ws-banco/ws/buscarUltimosCuponsPorPeriodo.json?cpfCnpj=%@&dias=%d&chave=wssmpsistemasws"
+#define urlWSBancoTeste @"http://192.168.1.117/smps-ws-banco/ws/buscarUltimosCuponsPorPeriodo.json?cpfCnpj=%@&dias=%d&chave=wssmpsistemasws"
 
 @interface PrincipalViewController ()
 
@@ -22,7 +22,7 @@
     [super viewDidLoad];
     
     // Set the title
-    self.title = @"Meu Consumo";
+    //self.title = @"Meu Consumo";
     self.ultimosDias.text = @"";
     self.tableView.dataSource=self;
     self.tableView.delegate=self;
@@ -32,11 +32,12 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    if (_cliente != nil) {
-        NSLog(@"%@ - %@", _cliente.nomeClien, _cliente.valoCredito);
-        _nomeDoCliente.text = _cliente.nomeClien;
-        _valorSaldo.text = _cliente.valoCredito;
-        //[self buscaCupomPorPerido:180];
+    userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults boolForKey:@"clienteAtivo"]) {
+        _nomeDoCliente.text = [userDefaults objectForKey:@"nomeClien"];
+        _valorSaldo.text = [userDefaults objectForKey:@"valoCredito"];
+        _cnpjClien.text = [userDefaults objectForKey:@"cnpjClien"];
+        NSLog(@"%@ - %@ - %@", _nomeDoCliente.text, _valorSaldo.text, _cnpjClien.text);
     }
     
 }
@@ -63,9 +64,14 @@
     [alert show];
 }
 
+- (IBAction)logout:(id)sender {
+    [userDefaults setBool:NO forKey:@"clienteAtivo"];
+    [self dismissViewControllerAnimated:NO completion:nil];
+}
+
 - (void)buscaCupomPorPerido:(int)dias {
     [self disableButtonsAndInputs];
-    NSString *urlWs = [NSString stringWithFormat:urlWSBancoTeste, _cliente.cnpjClien, dias];
+    NSString *urlWs = [NSString stringWithFormat:urlWSBancoTeste, _cnpjClien.text, dias];
     NSURL *url = [NSURL URLWithString:urlWs];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request
@@ -107,15 +113,17 @@
          retornoCupons = [[NSMutableArray alloc] init];
          for (int i = 0; i < jsonCupons.count; i++) {
              [self enableButtonsAndInputs];
-             cupomItem = [[CupomItem alloc] init];
-             [cupomItem setNumrCupom:[[jsonCupons objectAtIndex:i] objectForKey:@"numrCupom"]];
-             [cupomItem setEcfData:[[jsonCupons objectAtIndex:i] objectForKey:@"ecfData"]];
-             [cupomItem setValrTotal:[[jsonCupons objectAtIndex:i] objectForKey:@"valrTotal"]];
+             cupom = [[Cupom alloc] init];
+             [cupom setNumrCupom:[[jsonCupons objectAtIndex:i] objectForKey:@"numrCupom"]];
+             [cupom setEcfData:[[jsonCupons objectAtIndex:i] objectForKey:@"ecfData"]];
+             [cupom setValrTotal:[[jsonCupons objectAtIndex:i] objectForKey:@"valrTotal"]];
              
              // Itens do Cupom
              retornoCuponsItens = [[jsonCupons objectAtIndex:i] objectForKey:@"cfrtvens"];
+             jsonCupomItens = [[NSMutableArray alloc] init];
              for (int j = 0; j < retornoCuponsItens.count; j++) {
                  // Busca o Produto
+                 cupomItem = [[CupomItem alloc] init];
                  produto = [[Produto alloc] init];
                  NSDictionary *prod = [[retornoCuponsItens objectAtIndex:j] objectForKey:@"codigoproduto"];
                  [produto setCodgProd:[[prod objectForKey:@"codgProd"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
@@ -123,8 +131,15 @@
                  [produto setDescProd:[[prod objectForKey:@"descProd"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
                  [produto setCodgUnid:[[prod objectForKey:@"codgUnid"] stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceCharacterSet]]];
                  [cupomItem setProduto:produto];
-                 [retornoCupons addObject:cupomItem];
+                 [cupomItem setTotal:[[retornoCuponsItens objectAtIndex:j] objectForKey:@"total"]];
+                 [cupomItem setUnitario:[[retornoCuponsItens objectAtIndex:j] objectForKey:@"unitario"]];
+                 [cupomItem setSeqItem:[[retornoCuponsItens objectAtIndex:j] objectForKey:@"seqItem"]];
+                 [cupomItem setQtde:[[retornoCuponsItens objectAtIndex:j] objectForKey:@"qtde"]];
+                 [jsonCupomItens addObject:cupomItem];
+                 
              }
+             [cupom setCupomItens:jsonCupomItens];
+             [retornoCupons addObject:cupom];
          }
          
          [self.tableView reloadData];
@@ -148,7 +163,7 @@
 - (IBAction)extratoUltimos60Dias:(id)sender {
     mensagem = @"Buscando os dados dos últimos 60 dias...";
     _ultimosDias.text = @"Extrato 60 dias";
-    [self buscaCupomPorPerido:200];
+    [self buscaCupomPorPerido:360];
 }
 
 #pragma mark - Table view data source
@@ -170,15 +185,17 @@
     CupomTableViewCell *cellPrincipal = [tableView dequeueReusableCellWithIdentifier:@"CellPrincipal" forIndexPath:indexPath];
     
     // Configure the cell...
-    CupomItem *cp;
+    Cupom *cp;
     cp = [retornoCupons objectAtIndex:indexPath.row];
     
     cellPrincipal.numrCupom.text = cp.getNumrCupom;
     cellPrincipal.ecfData.text = cp.getEcfData;
-    cellPrincipal.descProd.text = [cp.getProduto getDescProd];
-    NSNumberFormatter *numberFormatter = [NSNumberFormatter new];
-    [numberFormatter setNumberStyle:NSNumberFormatterDecimalStyle];
-    cellPrincipal.valrTotal.text = [NSString stringWithFormat:@"%@,00", cp.getValrTotal];
+    cellPrincipal.valrTotal.text = [NSString stringWithFormat:@"R$ %@,00", cp.getValrTotal];
+    for (int i = 0; i < cp.getCupomItens.count; i++) {
+        CupomItem *item = [cp.getCupomItens objectAtIndex:i];
+        cellPrincipal.descProd.text = [[item getProduto] getDescProd];
+        cellPrincipal.vlrtItem.text = [NSString stringWithFormat:@"R$ %@,00", [item getTotal]];
+    }
     
     return cellPrincipal;
 }

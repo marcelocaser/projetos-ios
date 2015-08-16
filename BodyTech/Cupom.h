@@ -7,20 +7,23 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CupomItem.h"
 
 @interface Cupom : NSObject {
  
-    @public
     NSString *_numrCupom;
     NSString *_ecfData;
     NSNumber *_valrTotal;
+    NSMutableArray *_cupomItens;
 }
 
 - (void)setNumrCupom:(NSString *)numrCupom;
 - (void)setEcfData:(NSString *)ecfData;
 - (void)setValrTotal:(NSString *)valrTotal;
+- (void)setCupomItens:(NSMutableArray *)cupomItens;
 - (NSString *)getNumrCupom;
 - (NSString *)getEcfData;
--( NSNumber *)getValrTotal;
+- (NSNumber *)getValrTotal;
+- (NSMutableArray *)getCupomItens;
 
 @end

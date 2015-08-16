@@ -26,18 +26,13 @@
     _total = total;
 }
 
-- (void)setCupom:(Cupom *)cupom {
-    _numrCupom = [cupom getNumrCupom];
-    _ecfData = [cupom getEcfData];
-    _valrTotal = [cupom getValrTotal];
-}
-
 - (void)setProduto:(Produto *)produto {
     _produto = [[Produto alloc] init];
-    [_produto setCodgProd:[produto getCodgProd]];
+    _produto = produto;
+    /*[_produto setCodgProd:[produto getCodgProd]];
     [_produto setCodgBarra:[produto getCodgBarra]];
     [_produto setDescProd:[produto getDescProd]];
-    [_produto setCodgUnid:[produto getCodgUnid]];
+    [_produto setCodgUnid:[produto getCodgUnid]];*/
 }
 
 - (NSString *)getSeqItem {

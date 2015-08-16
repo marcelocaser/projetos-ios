@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *ecfData;
 @property (weak, nonatomic) IBOutlet UILabel *descProd;
 @property (weak, nonatomic) IBOutlet UILabel *valrTotal;
+@property (weak, nonatomic) IBOutlet UILabel *vlrtItem;
 
 @end

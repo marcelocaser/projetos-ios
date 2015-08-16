@@ -8,27 +8,32 @@
 
 #import <UIKit/UIKit.h>
 #import "Cliente.h"
+#import "Cupom.h"
 #import "CupomItem.h"
 #import "CupomTableViewCell.h"
 
 @interface PrincipalViewController : UIViewController<UITableViewDataSource, UITableViewDelegate> {
     
+    Cupom *cupom;
     CupomItem *cupomItem;
     Produto *produto;
+    //Cliente *cliente;
     UIAlertView *alert;
-    UIActivityIndicatorView *activity;
     NSMutableArray *jsonCupons;
+    NSMutableArray *jsonCupomItens;
     NSMutableArray *retornoCupons;
     NSMutableArray *retornoCuponsItens;
+    NSUserDefaults *userDefaults;
     NSString *mensagem;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *nomeDoCliente;
 @property (strong, nonatomic) IBOutlet UILabel *valorSaldo;
-@property (strong, nonatomic) Cliente *cliente;
+@property (weak, nonatomic) IBOutlet UILabel *cnpjClien;
 @property (strong, nonatomic) IBOutlet UILabel *ultimosDias;
 
+- (IBAction)logout:(id)sender;
 - (void)buscaCupomPorPerido:(int)dias;
 - (IBAction)extratoUltimos10Dias:(id)sender;
 - (IBAction)extratoUltimos30Dias:(id)sender;

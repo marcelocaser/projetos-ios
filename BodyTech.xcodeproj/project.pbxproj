@@ -20,8 +20,13 @@
 		565334AF1B62B211007713E5 /* logoBodyTechCompany.png in Resources */ = {isa = PBXBuildFile; fileRef = 565334AC1B62B211007713E5 /* logoBodyTechCompany.png */; };
 		565A3C551B67D1AC006CBAE7 /* PrincipalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 565A3C541B67D1AC006CBAE7 /* PrincipalViewController.m */; };
 		567C09CD1B710EA70045923E /* Cupom.m in Sources */ = {isa = PBXBuildFile; fileRef = 567C09CC1B710EA70045923E /* Cupom.m */; };
+		568B7C671B7B4E8D00D4D8CA /* logoBodyTech40pt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 568B7C661B7B4E8D00D4D8CA /* logoBodyTech40pt@2x.png */; };
+		568B7C691B7B524B00D4D8CA /* settings@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 568B7C681B7B524B00D4D8CA /* settings@2x.png */; };
+		568B86B41B7B95A60086348D /* AjusteTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 568B86B31B7B95A60086348D /* AjusteTableViewController.m */; };
+		56D6C2A81B810E9100F1CA41 /* power@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D6C2A71B810E9100F1CA41 /* power@2x.png */; };
+		56D6C2AA1B810EC500F1CA41 /* cloud@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D6C2A91B810EC500F1CA41 /* cloud@2x.png */; };
+		56D6C2AC1B81341900F1CA41 /* settingsBlack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56D6C2AB1B81341900F1CA41 /* settingsBlack@2x.png */; };
 		56E0C7051B78277C00EB03A8 /* logoBodyTech40pt.png in Resources */ = {isa = PBXBuildFile; fileRef = 56E0C7041B78277C00EB03A8 /* logoBodyTech40pt.png */; };
-		56E0C7071B7827C000EB03A8 /* logoBodyTech40pt2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 56E0C7061B7827C000EB03A8 /* logoBodyTech40pt2x.png */; };
 		56E0C70A1B78647D00EB03A8 /* CupomItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E0C7091B78647D00EB03A8 /* CupomItem.m */; };
 		56E0C70D1B7866DD00EB03A8 /* Produto.m in Sources */ = {isa = PBXBuildFile; fileRef = 56E0C70C1B7866DD00EB03A8 /* Produto.m */; };
 /* End PBXBuildFile section */
@@ -62,8 +67,14 @@
 		565A3C541B67D1AC006CBAE7 /* PrincipalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PrincipalViewController.m; sourceTree = "<group>"; };
 		567C09CB1B710EA70045923E /* Cupom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cupom.h; sourceTree = "<group>"; };
 		567C09CC1B710EA70045923E /* Cupom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cupom.m; sourceTree = "<group>"; };
+		568B7C661B7B4E8D00D4D8CA /* logoBodyTech40pt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoBodyTech40pt@2x.png"; sourceTree = "<group>"; };
+		568B7C681B7B524B00D4D8CA /* settings@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settings@2x.png"; sourceTree = "<group>"; };
+		568B86B21B7B95A60086348D /* AjusteTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AjusteTableViewController.h; sourceTree = "<group>"; };
+		568B86B31B7B95A60086348D /* AjusteTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AjusteTableViewController.m; sourceTree = "<group>"; };
+		56D6C2A71B810E9100F1CA41 /* power@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "power@2x.png"; sourceTree = "<group>"; };
+		56D6C2A91B810EC500F1CA41 /* cloud@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cloud@2x.png"; sourceTree = "<group>"; };
+		56D6C2AB1B81341900F1CA41 /* settingsBlack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "settingsBlack@2x.png"; sourceTree = "<group>"; };
 		56E0C7041B78277C00EB03A8 /* logoBodyTech40pt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoBodyTech40pt.png; sourceTree = "<group>"; };
-		56E0C7061B7827C000EB03A8 /* logoBodyTech40pt2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoBodyTech40pt2x.png; sourceTree = "<group>"; };
 		56E0C7081B78647D00EB03A8 /* CupomItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CupomItem.h; sourceTree = "<group>"; };
 		56E0C7091B78647D00EB03A8 /* CupomItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CupomItem.m; sourceTree = "<group>"; };
 		56E0C70B1B7866DD00EB03A8 /* Produto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Produto.h; sourceTree = "<group>"; };
@@ -122,6 +133,8 @@
 				565A3C541B67D1AC006CBAE7 /* PrincipalViewController.m */,
 				56325AEE1B750B180010D4AD /* CupomTableViewCell.h */,
 				56325AEF1B750B180010D4AD /* CupomTableViewCell.m */,
+				568B86B21B7B95A60086348D /* AjusteTableViewController.h */,
+				568B86B31B7B95A60086348D /* AjusteTableViewController.m */,
 			);
 			path = BodyTech;
 			sourceTree = "<group>";
@@ -129,8 +142,12 @@
 		565334811B62A8CC007713E5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				56D6C2A91B810EC500F1CA41 /* cloud@2x.png */,
+				56D6C2A71B810E9100F1CA41 /* power@2x.png */,
+				568B7C681B7B524B00D4D8CA /* settings@2x.png */,
+				56D6C2AB1B81341900F1CA41 /* settingsBlack@2x.png */,
 				56E0C7041B78277C00EB03A8 /* logoBodyTech40pt.png */,
-				56E0C7061B7827C000EB03A8 /* logoBodyTech40pt2x.png */,
+				568B7C661B7B4E8D00D4D8CA /* logoBodyTech40pt@2x.png */,
 				565334AB1B62B211007713E5 /* logoBodyTech.png */,
 				565334AC1B62B211007713E5 /* logoBodyTechCompany.png */,
 				565334821B62A8CC007713E5 /* Info.plist */,
@@ -268,9 +285,13 @@
 			files = (
 				5653348D1B62A8CC007713E5 /* Main.storyboard in Resources */,
 				565334921B62A8CC007713E5 /* LaunchScreen.xib in Resources */,
+				56D6C2A81B810E9100F1CA41 /* power@2x.png in Resources */,
+				568B7C671B7B4E8D00D4D8CA /* logoBodyTech40pt@2x.png in Resources */,
+				56D6C2AA1B810EC500F1CA41 /* cloud@2x.png in Resources */,
 				56E0C7051B78277C00EB03A8 /* logoBodyTech40pt.png in Resources */,
-				56E0C7071B7827C000EB03A8 /* logoBodyTech40pt2x.png in Resources */,
 				565334AF1B62B211007713E5 /* logoBodyTechCompany.png in Resources */,
+				56D6C2AC1B81341900F1CA41 /* settingsBlack@2x.png in Resources */,
+				568B7C691B7B524B00D4D8CA /* settings@2x.png in Resources */,
 				565334AE1B62B211007713E5 /* logoBodyTech.png in Resources */,
 				5653348F1B62A8CC007713E5 /* Images.xcassets in Resources */,
 			);
@@ -297,6 +318,7 @@
 				565A3C551B67D1AC006CBAE7 /* PrincipalViewController.m in Sources */,
 				565334AD1B62B211007713E5 /* Cliente.m in Sources */,
 				5653348A1B62A8CC007713E5 /* ViewController.m in Sources */,
+				568B86B41B7B95A60086348D /* AjusteTableViewController.m in Sources */,
 				565334871B62A8CC007713E5 /* AppDelegate.m in Sources */,
 				565334841B62A8CC007713E5 /* main.m in Sources */,
 			);
