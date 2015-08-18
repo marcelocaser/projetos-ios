@@ -25,6 +25,9 @@
     NSMutableArray *retornoCuponsItens;
     NSUserDefaults *userDefaults;
     NSString *mensagem;
+    NSString *ipServidor;
+    NSString *portaServidor;
+    NSString *urlWs;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -34,6 +37,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *ultimosDias;
 
 - (IBAction)logout:(id)sender;
+- (IBAction)settings:(id)sender;
 - (void)buscaCupomPorPerido:(int)dias;
 - (IBAction)extratoUltimos10Dias:(id)sender;
 - (IBAction)extratoUltimos30Dias:(id)sender;

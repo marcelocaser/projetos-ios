@@ -10,13 +10,15 @@
 #import "PrincipalViewController.h"
 #import "AjusteTableViewController.h"
 
-@interface ViewController : UIViewController {
+@interface ViewController : UIViewController <UITextFieldDelegate> {
     
     Cliente *cliente;
     UIAlertView *alert;
     NSString *mensagem;
+    NSString *urlWs;
     NSUserDefaults *userDefaults;
-    //IBOutlet UIButton *btnFazerLogin;
+    NSString *ipServidor;
+    NSString *portaServidor;
 }
 - (IBAction)efetuarLogin:(id)sender;
 - (IBAction)settings:(id)sender;

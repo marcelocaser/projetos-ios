@@ -9,7 +9,7 @@
 #import "PrincipalViewController.h"
 
 #define urlWSBanco @"http://wsbodytech.ddns.net/smps-ws-banco/ws/buscarUltimosCuponsPorPeriodo.json?cpfCnpj=%@&dias=%d&chave=wssmpsistemasws"
-#define urlWSBancoTeste @"http://192.168.1.117/smps-ws-banco/ws/buscarUltimosCuponsPorPeriodo.json?cpfCnpj=%@&dias=%d&chave=wssmpsistemasws"
+#define urlWSBancoLocal @"http://%@:%@/smps-ws-banco/ws/buscarUltimosCuponsPorPeriodo.json?cpfCnpj=%@&dias=%d&chave=wssmpsistemasws"
 
 @interface PrincipalViewController ()
 
@@ -33,6 +33,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     userDefaults = [NSUserDefaults standardUserDefaults];
+    [self buscaDadosConexao];
     if ([userDefaults boolForKey:@"clienteAtivo"]) {
         _nomeDoCliente.text = [userDefaults objectForKey:@"nomeClien"];
         _valorSaldo.text = [userDefaults objectForKey:@"valoCredito"];
@@ -69,9 +70,29 @@
     [self dismissViewControllerAnimated:NO completion:nil];
 }
 
+- (IBAction)settings:(id)sender {
+    [self performSegueWithIdentifier:@"ajustesViewController" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"ajustesViewController"]) {
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Voltar" style:UIBarButtonItemStylePlain target:nil action:nil];
+    }
+}
+
+- (void)buscaDadosConexao {
+    ipServidor = [userDefaults objectForKey:@"ipServidor"];
+    portaServidor = [userDefaults objectForKey:@"portaServidor"];
+}
+
 - (void)buscaCupomPorPerido:(int)dias {
     [self disableButtonsAndInputs];
-    NSString *urlWs = [NSString stringWithFormat:urlWSBancoTeste, _cnpjClien.text, dias];
+    [self buscaDadosConexao];
+    //Define URL padrao do WS
+    urlWs = [NSString stringWithFormat:urlWSBanco, _cnpjClien.text, dias];
+    if ([userDefaults boolForKey:@"switchAcessoARedeInterna"]) {
+        urlWs = [NSString stringWithFormat:urlWSBancoLocal, ipServidor, [portaServidor isEqualToString:@""] ? @"80" : portaServidor, _cnpjClien.text, dias];
+    }
     NSURL *url = [NSURL URLWithString:urlWs];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request

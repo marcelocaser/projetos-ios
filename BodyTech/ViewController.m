@@ -9,7 +9,7 @@
 #import "ViewController.h"
 
 #define urlWSClient @"http://wsbodytech.ddns.net/smps-ws-client/ws/efetuarLogin.json?cpfCnpj=%@&senha=%@&chave=wssmpsistemasws"
-#define urlWSClientTeste @"http://192.168.1.117/smps-ws-client/ws/efetuarLogin.json?cpfCnpj=%@&senha=%@&chave=wssmpsistemasws"
+#define urlWSClientLocal @"http://%@:%@/smps-ws-client/ws/efetuarLogin.json?cpfCnpj=%@&senha=%@&chave=wssmpsistemasws"
 
 @interface ViewController ()
 
@@ -21,10 +21,16 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    _cpfCnpj.delegate = self;
+    _senha.delegate = self;
+    
     userDefaults = [NSUserDefaults standardUserDefaults];
+    //ipServidor = [userDefaults objectForKey:@"ipServidor"];
+    //portaServidor = [userDefaults objectForKey:@"portaServidor"];
     if ([userDefaults boolForKey:@"clienteAtivo"]) {
         [self performSegueWithIdentifier:@"principalViewController" sender:self];
     }
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,9 +49,15 @@
 - (IBAction)efetuarLogin:(id)sender {
     //[_btnLogin setEnabled:NO];
     if ([self validaCPFCNPJ] && [self validaSenha]) {
-         mensagem = @"Verificando conexão...";
+        mensagem = @"Verificando conexão...";
         [self disableButtonsAndInputs];
-        NSString *urlWs = [NSString stringWithFormat:urlWSClientTeste, self.cpfCnpj.text, self.senha.text];
+        //Define URL padrao do WS
+        ipServidor = [userDefaults objectForKey:@"ipServidor"];
+        portaServidor = [userDefaults objectForKey:@"portaServidor"];
+        urlWs = [NSString stringWithFormat:urlWSClient, _cpfCnpj.text, _senha.text];
+        if ([userDefaults boolForKey:@"switchAcessoARedeInterna"]) {
+            urlWs = [NSString stringWithFormat:urlWSClientLocal, ipServidor, [portaServidor isEqualToString:@""] ? @"80" : portaServidor, _cpfCnpj.text, _senha.text];
+        }
         NSURL *url = [NSURL URLWithString:urlWs];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [self enableButtonsAndInputs];
@@ -128,7 +140,7 @@
     
     if ([segue.identifier isEqualToString:@"ajustesViewController"]) {
         //AjusteTableViewController *svc = (AjusteTableViewController *)segue.destinationViewController;
-        
+        self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Voltar" style:UIBarButtonItemStylePlain target:nil action:nil];
     }
 }
 
@@ -152,14 +164,14 @@
     return true;
 }
 
-
 /*
  Metodo responsavel por esconder o teclado quando precionada a tecla "retornar"
  */
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [_senha resignFirstResponder];
-    [_cpfCnpj resignFirstResponder];
-    return YES;
+    if (textField) {
+        [textField resignFirstResponder];
+    }
+    return NO;
 }
 
 /*
@@ -174,27 +186,22 @@
 /*
  */
 /*- (NSUInteger)supportedInterfaceOrientations {
-    return UIInterfaceOrientationIsPortrait(YES);
-}*/
+ return UIInterfaceOrientationIsPortrait(YES);
+ }*/
 
 /*
  Metodo responsavel por "travar" auto rotação
  */
 /*- (BOOL)shouldAutorotate {
-    return NO;
-}*/
+ return NO;
+ }*/
 
 - (void)enableButtonsAndInputs {
     [alert dismissWithClickedButtonIndex:0 animated:YES];
 }
 
 - (void)disableButtonsAndInputs {
-    /*activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];*/
     alert = [[UIAlertView alloc] initWithTitle:@"Aguarde" message:mensagem delegate:self cancelButtonTitle:nil otherButtonTitles:nil, nil];
-    ///[alert addSubview:activity];
-    //activity.center = CGPointMake(10,5);
-    //activity.color = [UIColor blackColor];
-    //[activity startAnimating];
     [alert show];
 }
 
